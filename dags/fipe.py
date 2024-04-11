@@ -7,7 +7,6 @@ from include.emplacamentos.datasources.scraper import FipeCode
 from include.emplacamentos.datasources.api_endpoints.tabela_referencia import ConsultarTabelaDeReferencia
 from include.emplacamentos.datasources.api_endpoints.ano_modelo_codigo_fipe import ConsultarAnoModeloPeloCodigoFipe
 from include.emplacamentos.datasources.api_endpoints.todos_os_parametros import ConsultarValorComTodosParametros
-from include.emplacamentos.utils.saving_files import JsonFiles
 
 from airflow.decorators import dag, task
 import pandas as pd
@@ -15,7 +14,7 @@ import pandas as pd
 @dag(
     dag_id="emplacamentos",
     description="DAG que extrai dados da tabela fipe",
-    schedule="0 22 * * *",
+    schedule="0 22 2 * * ",
     start_date=datetime(2024,4,10),
     catchup=False
 )
